@@ -1,24 +1,28 @@
+#!/usr/bin/env python3
 import random
 import sys
+import signal
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from termcolor import colored
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-def main():
+def quiz():
     try:
         url = sys.argv[1]
     except:
-        sys.exit("Please provide the quiz URL.")
+        print(colored("Please provide the quiz URL.", "red"))
+        sys.exit(1)
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
     driver.implicitly_wait(3)
     driver.get(url)
 
     # Wait for user data fill-in
-    input("Fill in your data, then press any key.")
+    input(colored("Fill in your data, then press any key.", "blue"))
 
     while True:
         # Table processing
@@ -35,9 +39,19 @@ def main():
 
         try:
             driver.find_element(By.ID, "EndOfSurvey")
+            print(colored("Successfully filled quiz!", "green"))
             driver.quit()
+            sys.exit()
         except:
             pass
+
+
+def main():
+    try:
+        quiz()
+    except KeyboardInterrupt:
+        print(colored("Canceled.", "red"))
+        sys.exit(0)
 
 
 if __name__ == '__main__':
