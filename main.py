@@ -9,11 +9,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 
 def main():
-    if not sys.argv[1]:
+    try:
+        url = sys.argv[1]
+    except:
         sys.exit("Please provide the quiz URL.")
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
     driver.implicitly_wait(3)
-    driver.get(sys.argv[1])
+    driver.get(url)
 
     # Wait for user data fill-in
     input("Fill in your data, then press any key.")
