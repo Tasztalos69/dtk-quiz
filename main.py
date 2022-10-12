@@ -22,7 +22,7 @@ def quiz():
     driver.get(url)
 
     # Wait for user data fill-in
-    input(colored("Fill in your data, then press any key.", "blue"))
+    input(colored("Fill in your data, then press enter.", "blue"))
 
     while True:
         # Table processing
