@@ -7,12 +7,12 @@ Always fill in the quizes appropriately.
 
 # Requirements
 * Python 3
-* Firefox
+* Firefox / Chrome
 
 # Installation & usage
 ### 1. Clone repo
 ```bash
-git clone https://github.com/Tasztalos69/dtk-quiz.git
+git clone https://github.com/Tasztalos69/dtk-quiz.git && cd dtk-quiz
 ```
 
 ### 2. Install dependencies
@@ -20,11 +20,26 @@ git clone https://github.com/Tasztalos69/dtk-quiz.git
 python3 -m pip install -r requirements.txt
 ```
 
+If it throws an error `No module named pip`, make sure to install pip:
+```bash
+# Linux & macOS
+python3 -m ensurepip --upgrade
+
+# Windows
+py -m ensurepip --upgrade
+```
+
 ### 3. Run
 ```bash
-python3 ./main.py <quiz url>
+# With Firefox
+python3 ./main.py firefox quiz_url
+
+# With Chrome
+python3 ./main.py chrome quiz_url
 ```
-This opens a browser, where you're greeted with the quiz. Fill in any personal data manually, and when on the page with the questions to be filled, **return to the terminal**, and press any key. The script should fill all fields until it reaches the end.
+This opens a browser, where you're greeted with the quiz. Fill in any personal data manually, and when on the page with the questions to be filled, **return to the terminal**, and press enter. The script should fill all fields until it reaches the end.
+
+> Don't worry if it pauses between pages, it should continue automatically.
 
 # About
 This project emerged in a lunch break, and uses python and selenium. It's by far not complete, but it works.
