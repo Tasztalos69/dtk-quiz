@@ -24,5 +24,7 @@ python3 -m pip install -r requirements.txt
 ```bash
 python3 ./main.py <quiz url>
 ```
+This opens a browser, where you're greeted with the quiz. Fill in any personal data manually, and when on the page with the questions to be filled, **return to the terminal**, and press any key. The script should fill all fields until it reaches the end.
+
 # About
 This project emerged in a lunch break, and uses python and selenium. It's by far not complete, but it works.
