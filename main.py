@@ -5,6 +5,7 @@ import signal
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from termcolor import colored
+from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,11 +14,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 def quiz():
     try:
-        url = sys.argv[1]
+        parser = sys.argv[1]
+        if parser != "chrome" and parser != "firefox":
+            raise NameError
+    except:
+        print(colored("Please provide a parser (chrome / firefox).", "red"))
+        sys.exit(1)
+    try:
+        url = sys.argv[2]
     except:
         print(colored("Please provide the quiz URL.", "red"))
         sys.exit(1)
-    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
+    if parser == "firefox":
+        driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
+    else:
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.implicitly_wait(3)
     driver.get(url)
 
@@ -50,7 +61,7 @@ def main():
     try:
         quiz()
     except KeyboardInterrupt:
-        print(colored("Canceled.", "red"))
+        print(colored("\nCanceled.", "red"))
         sys.exit(0)
 
 
