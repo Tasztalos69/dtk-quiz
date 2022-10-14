@@ -17,7 +17,11 @@ git clone https://github.com/Tasztalos69/dtk-quiz.git && cd dtk-quiz
 
 ### 2. Install dependencies
 ```bash
+# Linux & macOS
 python3 -m pip install -r requirements.txt
+
+# Windows
+py -m pip install -r requirements.txt
 ```
 
 If it throws an error `No module named pip`, make sure to install pip:
@@ -32,10 +36,19 @@ py -m ensurepip --upgrade
 ### 3. Run
 ```bash
 # With Firefox
+# Linux & macOS
 python3 ./main.py firefox <quiz_url>
 
+# Windows
+py ./main.py firefox <quiz_url>
+
+
 # With Chrome
+# Linux & macOS
 python3 ./main.py chrome <quiz_url>
+
+# Windows
+py ./main.py chrome <quiz_url>
 ```
 This opens a browser, where you're greeted with the quiz. Fill in any personal data manually, and when on the page with the questions to be filled, **return to the terminal**, and press enter. The script should fill all fields until it reaches the end.
 
