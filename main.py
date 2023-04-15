@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 import random
 import sys
-import signal
+from termcolor import colored
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from termcolor import colored
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 def quiz():
